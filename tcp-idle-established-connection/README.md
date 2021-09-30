@@ -57,6 +57,7 @@ Thus, setting TCP_USER_TIMEOUT makes to ignore TCP_KEEPCNT, but would still use 
 Other references:
 - [The linux documentation project > TCP-Keepalive-HOWTO](https://tldp.org/HOWTO/TCP-Keepalive-HOWTO/usingkeepalive.html)
 - [torvalds/linux TCP_USER_TIMEOUT commit](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dca43c75e7e545694a9dd6288553f55c53e2a3a3)
+- [kernel doc ip-sysctl](https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt)
 
 ### Conclusion
 
