@@ -57,6 +57,7 @@ int main () {
     if ((sfd = socket(AF_INET, SOCK_STREAM, 0)) == -1 )
         handle_error("socket");
 
+    // Set Socket options
     if (setsockopt(sfd, SOL_SOCKET, SO_KEEPALIVE, (void *)&keepalive_enable, sizeof(keepalive_enable)) == -1)
         handle_error("setsockopt - SO_KEEPALIVE");
 
@@ -71,6 +72,7 @@ int main () {
 
     if (setsockopt(sfd, SOL_TCP, TCP_USER_TIMEOUT, (void *)&tcp_user_timeout, sizeof(tcp_user_timeout)) == -1)
         handle_error("setsockopt - TCP_USER_TIMEOUT");
+    // ------------------
 
     server_sockaddr.sin_family = AF_INET;
     server_sockaddr.sin_port = htons(TARGET_PORT);
@@ -94,5 +96,8 @@ int main () {
             safe_print(stderr, "recv: got package");
             safe_print(stdout, client_buffer);
         }
+
+        if (close(sfd) == -1)
+            handle_error("close");
     }
 }

@@ -67,5 +67,8 @@ int main () {
             safe_print(stderr, "recv: got package");
             safe_print(stdout, client_buffer);
         }
+
+        if (close(sfd) == -1)
+            handle_error("close");
     }
 }

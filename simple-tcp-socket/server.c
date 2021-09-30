@@ -75,5 +75,7 @@ int main () {
             if (send(accepted_sfd, message, strlen(message), 0) == -1)
                 handle_error("send");
         }
+        if (close(accepted_sfd) == -1)
+            handle_error("close");
     }
 }
